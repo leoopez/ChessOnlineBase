@@ -37,7 +37,6 @@ if __name__ == '__main__':
                 board = node.board()
                 score = 0
                 pawn = stockfish.analyse(board, engine.Limit(time=0.1))['score']
-                print(pawn)
                 if pawn.is_mate():
                     if pawn.turn:
                         pawn_user_games.append(1000)
