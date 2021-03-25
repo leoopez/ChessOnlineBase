@@ -1,6 +1,7 @@
 import lichess.api as lichess
 from lichess.format import PGN
 # import chess.engine
+import os
 import chess.pgn
 import chess.engine as engine
 from io import StringIO
