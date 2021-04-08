@@ -12,10 +12,14 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
+from PIL import Image
+from urllib.request import urlopen
+
 
 ENGINE_PATH = os.path.join(os.path.normpath(os.getcwd() + os.sep),
                            os.path.join('stockfish_13_win_x64',
                                         os.path.join('stockfish_13_win_x64', 'stockfish_13_win_x64.exe')))
+LICHESS_LOGO = "https://images.prismic.io/lichess/5cfd2630-2a8f-4fa9-8f78-04c2d9f0e5fe_lichess-box-1024.png?auto=compress,format"
 
 def info(pgn_game='mVrtdM0i'):
     return lichess.api.game(pgn_game)
@@ -99,20 +103,17 @@ def make_DataFrame(score_white: pd.Series, score_black: pd.Series):
     return df
 
 if __name__ == "__main__":
+
+    st.title('Lichess Improve')
+    im = Image.open(urlopen(LICHESS_LOGO))
+    st.image(im)
+    st.header('Paste the PGN')
+    game_input = "mVrtdM0i"
+    game = st.text_area("Sequence input", game_input)
     game = info()
+
     white_player = game['players']['white']['user']['name']
     black_player = game['players']['black']['user']['name']
-    """
-    # Lichess Improve
-    ●
-    """
-    f"""
-     {white_player} {game['players']['white']['rating']} - {game['players']['black']['rating']} {black_player}
-    """
-    """
-    '●'
-    """
-
 
     #white, black, _,_ = board_analyse()
     with open('example.npy', 'rb') as f:
@@ -124,6 +125,6 @@ if __name__ == "__main__":
 
     df = make_DataFrame(series_white, series_black)
 
-    st.write(app(df))
-    st.write(app_streamlit(df))
-    st.write(winning_chance())
+    #st.write(app(df))
+    #st.write(app_streamlit(df))
+    #st.write(winning_chance())

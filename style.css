@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+header {
+    position: relative;
+    border-bottom: 7px solid #d59020;
+}
+
+h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+body {
+    font-family: lato, serif;
+    background: #edebe9;
+        /* background-color: #60b347; */
+}
+
+
+table.chessboard {
+    margin: auto auto;
+    border-collapse: collapse; /* */
+    border-color: #d59020;
+}
+th.column_letter {
+    color: #333;
+    font-size: 3rem;
+    width: 70px; height: 35px;
+}
+
+th.row_number {
+    color: #333;
+    font-size: 3rem;
+    width: 35px; height: 70px;
+}
+td.chessboard {
+    width: 70px; height: 70px;
+    border: 2px solid #333; /* */
+    background: #d59020;
+}
