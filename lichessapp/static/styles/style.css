@@ -3,7 +3,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 html {
@@ -11,20 +11,54 @@ html {
     box-sizing: border-box;
 }
 
+
+body {
+    font-family: lato, serif;
+    background: #edebe9;
+    /* background-color: #60b347; */
+}
+
 header {
+    height: 35vh;
+    font-family: inherit;
     position: relative;
     border-bottom: 7px solid #d59020;
 }
 
 h1 {
+    font-family: inherit;
     font-size: 4rem;
     text-align: center;
 }
+.game_info {
+  height: 65vh;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
-body {
-    font-family: lato, serif;
-    background: #edebe9;
-        /* background-color: #60b347; */
+.text_pgn_game {
+  background: none;
+  border: 4px solid #eee;
+  font-family: inherit;
+  color: inherit;
+  font-size: 5rem;
+  padding: 2.5rem;
+  width: 25rem;
+  text-align: center;
+  display: block;
+  margin-bottom: 3rem;
+}
+
+.btn_start_analyse{
+  border: none;
+  background-color: #eee;
+  color: #222;
+  font-size: 2rem;
+  font-family: inherit;
+  padding: 2rem 3rem;
+  cursor: pointer;
 }
 
 
@@ -44,6 +78,7 @@ th.row_number {
     font-size: 3rem;
     width: 35px; height: 70px;
 }
+
 td.chessboard {
     width: 70px; height: 70px;
     border: 2px solid #333; /* */

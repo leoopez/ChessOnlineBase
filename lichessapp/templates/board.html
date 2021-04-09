@@ -5,12 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Lichess Improve</title>
-        <link href="style.css" rel ="stylesheet">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     </head>
     <body>
         <header>
             <h1>Lichess Improve</h1>
         </header>
+        <div class="game_info">
+            <input class="text_pgn_game"/>
+            <button class="btn_start_analyse">Analyse</button>
+            <p class="message_pgn_game">Example:'SjvccDfr'</p>
+        </div>
         <table class="chessboard">
             <tbody>
                 <tr>
@@ -114,5 +119,6 @@
                 </tr>
             </tbody>
         </table>
+        <script type=text/javascript src="{{url_for('static', filename='js/script.js') }}"></script>
     </body>
 </html>
