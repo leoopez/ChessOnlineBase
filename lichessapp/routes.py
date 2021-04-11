@@ -1,17 +1,24 @@
 from lichessapp import app
 from lichessapp import squares
 from flask import render_template, url_for
-
+from lichess.api import ApiHttpError
 
 @app.route('/')
 def home_page():
-    return render_template("board.html")
+
+    return render_template("home.html")
 
 
 @app.route('/<game_url>')
 def game_page(game_url):
 
-    info = squares.game(game_url)
-    data = squares.squares_points(info)
-
-    return render_template("game.html", game=info.headers, len=len(data.columns))
+    info = None
+    data = None
+    while True:
+        try:
+            info = squares.game(game_url)
+            data = squares.squares_points(info)
+        except ApiHttpError:
+            return render_template("ApiHttpError.html")
+        else:
+            return render_template("game.html", game=info.headers, len=len(data.columns))
