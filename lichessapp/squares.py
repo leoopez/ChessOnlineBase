@@ -1,28 +1,35 @@
-#import chess
 import chess.pgn
 import lichess.api
-import numpy as np
 from lichess.format import SINGLE_PGN
 from io import StringIO
+import pandas as pd
 
 
-def print_board(count: list):
-    mat = np.array(count).reshape(8, 8)
-    print(mat)
+def game(url):
+    return chess.pgn.read_game(
+        StringIO(
+            lichess.api.game(url, format=SINGLE_PGN)))
 
 
-lichess_game_pgn = lichess.api.game('bDFkNAHm', format=SINGLE_PGN)
-chess_game_pgn = chess.pgn.read_game(StringIO(lichess_game_pgn))
-init_chess_board = chess.BaseBoard()
+def squares_points(game_url):
 
-c = [0 for _ in range(64)]
+    df = pd.DataFrame(index=[sq for sq in chess.SQUARE_NAMES])
+    node = game_url.game()
+    node = node.next()
+    move_num = 1
 
-for square in chess.SQUARES:
-    for sq in init_chess_board.attacks(square):
-        if init_chess_board.color_at(square):
-            c[sq] += 1
+    while not node.is_end():
+        values = [0 for _ in range(64)]
+        board = node.board()
+        for square in chess.SQUARES:
+            for sq in board.attacks(square):
+                if board.color_at(square):
+                    values[sq] += 1
+                elif not board.color_at(square):
+                    values[sq] -= 1
+        series = pd.Series({x: y for x, y in zip(chess.SQUARE_NAMES, values)}, name=str(move_num))
+        df[series.name] = series
+        node = node.next()
+        move_num += 1
 
-        elif not init_chess_board.color_at(square):
-            c[sq] -= 1
-
-print_board(c)
+    return df
