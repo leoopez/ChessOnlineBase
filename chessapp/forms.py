@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, ValidationError
 from wtforms.validators import DataRequired, Length, Email
+from chessapp.database import User
 
 
 class RegistrationForm(FlaskForm):
@@ -8,6 +9,14 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign Up')
+
+    def validate_username(self, username):
+        if User.query.filter_by(username=username.data).first():
+            raise ValidationError('Username already token, select another one')
+
+    def validate_email(self, email):
+        if User.query.filter_by(email=email.data).first():
+            raise ValidationError('email already token, select another one')
 
 
 class LoginForm(FlaskForm):
