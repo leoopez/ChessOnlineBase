@@ -6,19 +6,24 @@
         {% block head %}
             <title>{% block title %}{% endblock %}</title>
         {% endblock %}
-        <link rel="icon" type="image/jpg" href="https://images.prismic.io/lichess/f54baa80-94ed-4ba1-b42b-afd818ec4b64_Horseybig.png?auto=compress,format"/>
     </head>
 <body>
-
-    {% block navbar %} {% endblock %}
-
-    {% block content%}
-
-    {% endblock%}
-
-    {% block scripts %}
-    {{ super() }}
-    {{ moment.include_moment() }}
+    {% block navbar %}
     {% endblock %}
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for category, message in messages %}
+                <li>
+                    {{ message }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% block content%}{% endblock%}
+    {% block scripts %}{% endblock %}
+
 </body>
 </html>

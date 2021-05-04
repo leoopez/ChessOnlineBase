@@ -1,6 +1,7 @@
-from chessapp import app
-from flask import render_template, url_for, flash, redirect, session
+from flask import render_template, url_for, flash, redirect
+from chessapp import app, db, bcrypt
 from chessapp.forms import RegistrationForm, LoginForm
+from chessapp.database import User, Game
 from datetime import datetime
 
 
@@ -18,9 +19,12 @@ def home_page():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        session['name'] = form.username.data
-        flash(f'Account created Successfully', 'success')
-        return redirect(url_for("home_page"))
+        hashed_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_pw)
+        db.session.add(user)
+        db.session.commit()
+        flash("Your account has benn created")
+        return redirect(url_for("login"))
     return render_template("auth/register.html", title='Register', form=form)
 
 
@@ -29,7 +33,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         return redirect(url_for("home_page"))
-    return render_template("auth/login.html", title='Register', form=form)
+    return render_template("auth/login.html", title='Login', form=form)
 
 
 @app.route('/profile/<username>')

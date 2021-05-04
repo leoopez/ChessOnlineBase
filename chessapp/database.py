@@ -1,8 +1,5 @@
-from chessapp import app
-from flask_sqlalchemy import SQLAlchemy
+from chessapp import db
 from datetime import datetime
-
-db = SQLAlchemy(app)
 
 
 class User(db.Model):
