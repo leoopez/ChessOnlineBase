@@ -11,8 +11,9 @@ db = SQLAlchemy(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 bcrypt = Bcrypt(app)
-login = LoginManager(app)
-
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+login_manager.login_message_category = 'info'
 app.config['SECRET_KEY'] = "bJrskGqD8YDfLNqrswwe"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 

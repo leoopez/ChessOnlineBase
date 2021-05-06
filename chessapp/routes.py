@@ -1,8 +1,8 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from chessapp import app, db, bcrypt
 from chessapp.forms import RegistrationForm, LoginForm
 from chessapp.database import User, Game
-from flask_login import login_user, current_user
+from flask_login import login_user, current_user, logout_user, login_required
 from datetime import datetime
 
 
@@ -40,10 +40,23 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
-            return redirect(url_for('home_page'))
+            next_page =request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('home_page'))
         else:
             flash('Login Unsuccesful')
     return render_template("auth/login.html", title='Login', form=form)
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home_page'))
+
+
+@app.route('/account')
+@login_required
+def account():
+    return render_template('account.html', title='Account')
 
 
 @app.route('/profile/<username>')
