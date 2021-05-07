@@ -8,8 +8,7 @@
         {% endblock %}
     </head>
 <body>
-    {% block navbar %}
-    {% endblock %}
+    {% block navbar %}{% endblock %}
     {% with messages = get_flashed_messages(with_categories=True) %}
         {% if messages %}
             <ul class=flashes>
