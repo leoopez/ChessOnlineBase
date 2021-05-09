@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request
 from chessapp import app, db, bcrypt
-from chessapp.forms import RegistrationForm, LoginForm
+from chessapp.forms import RegistrationForm, LoginForm, UpdateForm
 from chessapp.database import User, Game
 from flask_login import login_user, current_user, logout_user, login_required
 from datetime import datetime
@@ -56,10 +56,23 @@ def logout():
 @app.route('/account')
 @login_required
 def account():
-    return render_template('account.html', title='Account')
+    image_file = url_for('static', filename="images/default.png")
+    return render_template('account.html', image_file=image_file, title='Account')
 
 
-@app.route('/profile/<username>')
-def game_page(username):
-    return render_template("game.html")
+@login_required
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    form = UpdateForm()
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('your account has been updated!', 'success')
+        return redirect(url_for('account'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+    image_file = url_for('static', filename="images/default.png")
+    return render_template('profile.html', image_file=image_file, form=form)
 

@@ -1,7 +1,16 @@
 {% extends "layout.html" %}
 {% block title %}{{ current_user.username }} - ChessOnlinebase profile{% endblock %}
 {% block content %}
+    <a class="nav-item nav-link" href="{{ url_for('profile') }}">Profile</a>
+    <div class="content-section">
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ image_file }}" height="150" width="75">
+            <div class="media-body">
+                <h2 class="account-heading">{{ current_user.userame }}</h2>
+                <p class="text-secondary">{{ current_user.email }}</p>
+            </div>
+        </div>
+        <!-- FORM HERE -->
+    </div>
 
-
-<h1>{{ current_user.username }}</h1>
 {% endblock %}
