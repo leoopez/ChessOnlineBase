@@ -13,7 +13,7 @@ def page_not_found(e):
 
 @app.route('/')
 def home_page():
-    return render_template("home.html", current_time=datetime.utcnow())
+    return render_template("index.html", current_time=datetime.utcnow())
 
 
 @app.route('/register', methods=['GET', 'POST'])
