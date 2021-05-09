@@ -1,30 +1,38 @@
-{%extends "layout.html" %}
+{% extends "layout.html" %}
 {% block title %}ChessOnlinebase{% endblock %}
+
 {% block navbar%}
-<div class="navbar navbar-inverse" role="navigation">
-            <div class="container"><div class="navbar-header">
-                <button type="button" class="navbar-toggle"data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <div class="navbar-header">
                 <a class="navbar-brand" href="/">ChessOnlinebase</a>
             </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        {% if current_user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
-                        <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
-                        {% else %}
-                        <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-                        <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
-                        {% endif %}
-                    </ul>
-                </div>
+            <div class="navbar navbar-expand-lg">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if current_user.is_authenticated %}
+                    <a class="navbar-brand" href="{{ url_for('account') }}">Account</a>
+                    {% else %}
+                    <a class="navbar-brand" href="{{ url_for('login') }}">Login</a>
+                    <a class="navbar-brand" href="{{ url_for('register') }}">Register</a>
+                    {% endif %}
+                </ul>
             </div>
         </div>
+    </nav>
 {% endblock %}
+
+
+{% block content%}
+<div class="container">
+    <button class="">Add lichess.com</button>
+    <button class="">Add Chess.com</button>
+    <button class="">Add Chess24.com</button>
+</div>
+
+
+
+{% endblock%}
+
 {% block scripts %}
     {{ super() }}
     {{ moment.include_moment() }}

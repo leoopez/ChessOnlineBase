@@ -1,16 +1,50 @@
 {% extends "layout.html" %}
 {% block title %}{{ current_user.username }} - ChessOnlinebase profile{% endblock %}
-{% block content %}
-    <a class="nav-item nav-link" href="{{ url_for('profile') }}">Profile</a>
-    <div class="content-section">
-        <div class="media">
-            <img class="rounded-circle account-img" src="{{ image_file }}" height="150" width="75">
-            <div class="media-body">
-                <h2 class="account-heading">{{ current_user.userame }}</h2>
-                <p class="text-secondary">{{ current_user.email }}</p>
+{% block navbar%}
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">ChessOnlinebase</a>
+            </div>
+            <div class="navbar navbar-expand-lg">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <a class="navbar-brand" href="{{ url_for('logout') }}">Logout</a>
+                    <a class="navbar-brand" href="{{ url_for('profile') }}">Profile</a>
+                </ul>
             </div>
         </div>
-        <!-- FORM HERE -->
-    </div>
+    </nav>
+{% endblock %}
 
+{% block content %}
+    <div class="content-wrapper">
+        <div class="profile-side-bar">
+            <div class="media-body">
+                <h2 class="account-heading border border">{{ current_user.username }}</h2>
+                <div class="container">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span>Lichess.com</span>
+                            <span>0</span>
+                            <span>0</span>
+                            <span>0</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Chess.com</span>
+                            <span>0</span>
+                            <span>0</span>
+                            <span>0</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Chess24</span>
+                            <span>0</span>
+                            <span>0</span>
+                            <span>0</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="profile-side-bar"></div>
+    </div>
 {% endblock %}
