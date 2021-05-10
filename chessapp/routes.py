@@ -12,7 +12,7 @@ def page_not_found(e):
 
 
 @app.route('/')
-def home_page():
+def home():
     return render_template("index.html", current_time=datetime.utcnow())
 
 
@@ -76,3 +76,7 @@ def profile():
     image_file = url_for('static', filename="images/default.png")
     return render_template('profile.html', image_file=image_file, form=form)
 
+
+@app.route('/game')
+def game():
+    return render_template('game.html')
