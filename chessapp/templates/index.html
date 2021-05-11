@@ -12,9 +12,12 @@
 
 {% block content%}
 <div class="container">
-    <a href=" {{ url_for('game')}} ">Add lichess.com</a>
-    <a class="">Add Chess.com</a>
-    <a class="">Add Chess24.com</a>
-    <a class="">Own Chess Game</a>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a href=" {{ url_for('game')}} " class="btn">Add lichess.com</a>
+        <a href=" {{ url_for('game')}} " class="btn">Add Chess.com</a>
+        <a href=" {{ url_for('game')}} " class="btn">Add Chess24.com</a>
+        <a href=" {{ url_for('game')}} " class="btn">Own Chess Game</a>
+    </div>
+
 </div>
 {% endblock%}

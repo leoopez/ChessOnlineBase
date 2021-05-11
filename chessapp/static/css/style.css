@@ -13,8 +13,9 @@ body{
 /*     display: flex;*/
 /*}*/
 .wrap-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* fraction*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* fraction*/
+    padding: 10px;
 }
 .chess-board {
     display: grid;
@@ -32,7 +33,26 @@ body{
 .dark{
     background-color: #9a9a9a;
 }
+.black-rook{
+    background-image: url(img/chesspieces/wikipedia/bR.png)
+}
 
-/*piece {*/
+piece {
+    top: 0;
+    left: 0;
+    width: 12.5%;
+    height: 12.5%;
+    background-size: cover;
+    z-index: 2;
+    will-change: transform;
+    pointer-events: none;
+}
+.game-analysis{
+    background-color: #0a6640;
+    margin: 10px;
+    padding: 10px;
+}
 
-/*}*/
+.moves{
+    background-color: #aa1111;
+}
