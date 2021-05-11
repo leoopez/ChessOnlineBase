@@ -7,85 +7,160 @@
 {% endblock %}
 {% block content %}
     <div class="container">
-        <div class="chess-board">
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
+        <div class="wrap-container">
+            <div class="container side-bar">
+                <h4>Example heading</h4>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="White Player" aria-label="White Player" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Rating" aria-label="Rating" aria-describedby="basic-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Black Player" aria-label="Black Player" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Rating" aria-label="Rating" aria-describedby="basic-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Event" aria-label="Event" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Time Control" aria-label="Time Control" aria-describedby="basic-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Round" aria-label="Round" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Date" aria-label="Date" aria-describedby="basic-addon2">
+                </div>
+            </div>
+            <div class="chess-board">
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bR.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bN.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bB.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bQ.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bK.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bB.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bN.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bR.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bP.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bP.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bP.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bP.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bP.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bP.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bP.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/bP.png')}}">
+                </div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
 
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
 
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-            <div class="dark"></div>
-            <div class="light"></div>
-        </div>
-        <div class="container">
-            <div class=""
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="dark"></div>
+                <div class="light"></div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wP.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wP.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wP.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wP.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wP.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wP.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wP.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wP.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wR.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wN.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wB.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wQ.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wK.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wB.png')}}">
+                </div>
+                <div class="dark">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wN.png')}}">
+                </div>
+                <div class="light">
+                    <img src="{{ url_for('static', filename='img/chesspieces/wikipedia/wR.png')}}">
+                </div>
+            </div>
+            <div class="game-moves">
+            </div>
         </div>
     </div>
 {% endblock %}
-{% block scripts %}
-
-{% endblock %}
-
