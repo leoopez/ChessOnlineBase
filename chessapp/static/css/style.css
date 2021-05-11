@@ -37,7 +37,7 @@ body{
     background-image: url(img/chesspieces/wikipedia/bR.png)
 }
 
-piece {
+.current {
     top: 0;
     left: 0;
     width: 12.5%;
@@ -47,6 +47,7 @@ piece {
     will-change: transform;
     pointer-events: none;
 }
+
 .game-analysis{
     background-color: #0a6640;
     margin: 10px;

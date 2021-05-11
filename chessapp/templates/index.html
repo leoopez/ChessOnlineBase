@@ -12,12 +12,14 @@
 
 {% block content%}
 <div class="container">
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <a href=" {{ url_for('game')}} " class="btn">Add lichess.com</a>
-        <a href=" {{ url_for('game')}} " class="btn">Add Chess.com</a>
-        <a href=" {{ url_for('game')}} " class="btn">Add Chess24.com</a>
-        <a href=" {{ url_for('game')}} " class="btn">Own Chess Game</a>
-    </div>
+    {% if current_user.is_authenticated %}
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href=" {{ url_for('game')}} " class="btn">Add lichess.com</a>
+            <a href=" {{ url_for('game')}} " class="btn">Add Chess.com</a>
+            <a href=" {{ url_for('game')}} " class="btn">Add Chess24.com</a>
+            <a href=" {{ url_for('game')}} " class="btn">Own Chess Game</a>
+        </div>
+    {% endif %}
 
 </div>
 {% endblock%}
