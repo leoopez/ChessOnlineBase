@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 body{
     margin: 0;
-    color: rgba(0, 0, 0, 0.65);
     font-size: 14px;
     font-variant: tabular-nums;
     line-height: 1.5;
-    background-color: #fbf5ef;
+    background-color: #212f3c;
     -webkit-font-feature-settings: 'tnum';
     font-feature-settings: 'tnum';
 }
@@ -17,6 +16,11 @@ body{
     grid-template-columns: 1fr 1fr 1fr; /* fraction*/
     padding: 10px;
 }
+
+h4 {
+    color: #aeb6bf;
+}
+/*chessboard*/
 .chess-board {
     display: grid;
     grid-template-columns: repeat(8, 80px);
@@ -33,20 +37,49 @@ body{
 .dark{
     background-color: #9a9a9a;
 }
+/*chess pieces*/
+img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 .black-rook{
-    background-image: url(img/chesspieces/wikipedia/bR.png)
+    background: url(/static/img/chesspieces/wikipedia/bR.png)
 }
-
-.current {
-    top: 0;
-    left: 0;
-    width: 12.5%;
-    height: 12.5%;
-    background-size: cover;
-    z-index: 2;
-    will-change: transform;
-    pointer-events: none;
+.white-rook{
+    background-image: url(/static/img/chesspieces/wikipedia/wR.png)
 }
+.black-knight{
+    background-image: url(/static/img/chesspieces/wikipedia/bN.png)
+}
+.white-knight{
+    background-image: url(/static/img/chesspieces/wikipedia/wN.png)
+}
+.black-bishop{
+    background-image: url(/static/img/chesspieces/wikipedia/bB.png)
+}
+.white-bishop{
+    background-image: url(/static/img/chesspieces/wikipedia/wB.png)
+}
+.black-king{
+    background-image: url(/static/img/chesspieces/wikipedia/bK.png)
+}
+.white-king{
+    background-image: url(/static/img/chesspieces/wikipedia/wK.png)
+}
+.white-queen{
+    background-image: url(/static/img/chesspieces/wikipedia/wQ.png)
+}
+.black-queen{
+    background-image: url(/static/img/chesspieces/wikipedia/bQ.png)
+}
+.white-pawn{
+    background-image: url(/static/img/chesspieces/wikipedia/wP.png)
+}
+.black-pawn{
+    background-image: url(/static/img/chesspieces/wikipedia/bP.png)
+}
+/*//////////////////////////////////////////////////////////////////////
 
 .game-analysis{
     background-color: #0a6640;

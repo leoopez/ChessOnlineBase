@@ -1,3 +1,4 @@
+import chess
 import chess.pgn
 import lichess.api
 from lichess.format import SINGLE_PGN
@@ -33,3 +34,11 @@ def squares_points(game_url):
         move_num += 1
 
     return df
+
+
+def wrinting_game():
+    game = chess.pgn.Game()
+    game.headers["Event"] = "Example"
+    node = game.add_variation(chess.Move.from_uci("e2e4"))
+    node = node.add_variation(chess.Move.from_uci("e7e5"))
+    node.comment = "Comment"
