@@ -17,11 +17,27 @@ function start(){
                          "white-rook", "white-knight", "white-bishop", "white-queen", "white-king", "white-bishop", "white-knight", "white-rook"];
 
     for(let i = 0 ;i<32 ;i++){
-        let para = document.createElement("IMG");
-        para.className = class_name[i];
+        let para = document.createElement("PIECE");
+        para.className = `current-square ${class_name[i]}`;
         document.getElementById(`square-${start_squares[i]}`).appendChild(para);
     }
 }
-
-
 start();
+
+
+;(function () {
+    let currentSquare;
+    document.querySelectorAll('.current-square').forEach(item => {
+      item.addEventListener('click', event => {
+          if(currentSquare){
+              if(currentSquare.className === "light"){
+                currentSquare.style.backgroundColor = "#c0c0c0";
+              }else{
+                currentSquare.style.backgroundColor = "#9a9a9a";
+              }
+          }
+          item.parentElement.style.backgroundColor = '#3171ba';
+          currentSquare = item.parentElement;
+      })
+    })
+})()
