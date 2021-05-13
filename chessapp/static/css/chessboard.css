@@ -1,25 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
-body{
-    margin: 0;
-    font-size: 14px;
-    font-variant: tabular-nums;
-    line-height: 1.5;
-    background-color: #212f3c;
-    -webkit-font-feature-settings: 'tnum';
-    font-feature-settings: 'tnum';
-}
-/*.content-wrapper{*/
-/*     display: flex;*/
-/*}*/
-.wrap-container {
+
+.wrap-chess-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* fraction*/
     padding: 10px;
 }
 
-h4 {
-    color: #aeb6bf;
-}
 /*chessboard*/
 .chess-board {
     display: grid;

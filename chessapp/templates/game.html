@@ -1,14 +1,16 @@
 {%extends "layout.html" %}
 
 {% block title %}New Game{% endblock %}
-
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chessboard.css') }}">
+{% endblock %}
 {% block navbar_a %}
     <a class="navbar-brand" href="{{ url_for('account') }}">Account</a>
 {% endblock %}
 {% block content %}
     <div class="container">
-        <div class="wrap-container">
-            <div class="container side-bar">
+        <div class="wrap-chess-container">
+            <div class="container chess-side-bar">
                 <h4>Example heading</h4>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="White Player" aria-label="White Player" aria-describedby="basic-addon2">
