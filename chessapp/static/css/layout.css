@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -15,33 +16,40 @@ body{
     font-size: 14px;
     font-variant: tabular-nums;
     line-height: 1.5;
+    align-items: center;
+    flex-direction: column;
     -webkit-font-feature-settings: 'tnum';
     font-feature-settings: 'tnum';
-    font-family: sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     color: #333;
-    line-height: 1.5;
     height: 100vh;
     position: relative;
     justify-content: center;
-    background: linear-gradient(to top left,  #0077ff, #8b8b8b);
-    /*background: linear-gradient(to top left, #28b487, #7dd56f);*/
+    /*background: #FEF9E7;*/
+    background: linear-gradient(to top left, #FEF9E7, #F4F6F6);
 }
 
 .hidden {
   display: none;
 }
 
-.btn {
-  border: none;
-  background-color: #eee;
-  color: #222;
-  font-size: 2rem;
-  font-family: inherit;
-  padding: 2rem 3rem;
+.pointer{
   cursor: pointer;
 }
 
+.site-title{
+    background: #85929E;
+}
+.navbar-text-1 > a{
+    font-family: inherit;
+    color: #aa1111;
+    font-size: 25px;
+}
 
+ul.navbar-text-2 > a{
+    font-size: 20px;
+    color: #0a6640;
+}
 h1 {
   font-size: 2.5rem;
   margin-bottom: 2rem;

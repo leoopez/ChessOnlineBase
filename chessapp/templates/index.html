@@ -26,10 +26,9 @@
 
     {% if current_user.is_authenticated %}
     <div class="container btn-options">
-        <a href=" {{ url_for('game')}} " class="btn up-chess-option">Add Lichess.com</a>
-        <a href=" {{ url_for('game')}} " class="btn up-chess-option">Add Chess.com</a>
-        <a href=" {{ url_for('game')}} " class="btn up-chess-option">Add Chess24.com</a>
-        <a href=" {{ url_for('game')}} " class="btn up-chess-option">Own Chess Game</a>
+        <a href=" {{ url_for('index')}} " class="pointer up-chess-option" id="btn-chess-com">Chess.com</a>
+        <a href=" {{ url_for('index')}} " class="pointer up-chess-option">Lichess.com</a>
+        <a href=" {{ url_for('index')}} " class="pointer up-chess-option">Chess24.com</a>
     </div>
     {% endif %}
 
