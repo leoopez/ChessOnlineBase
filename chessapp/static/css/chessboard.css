@@ -1,0 +1,68 @@
+
+
+.layout-chessboard{
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+    grid-template-rows: repeat(8, auto);
+    width: 40vw;
+    height:40vw;
+    background: url(../150.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    grid-gap: 1px;
+}
+
+piece{
+    position:relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+square:nth-child(odd){
+    background-color: rgba(244, 208, 63,0.5);
+}
+
+square:nth-child(even){
+    background-color: rgba(241, 196, 15,0.5);
+}
+.black-rook{
+    background-image: url(../bR.png)
+}
+.white-rook{
+    background-image: url(../wR.png)
+}
+.black-knight{
+    background-image: url(../bN.png)
+}
+.white-knight{
+    background-image: url(../wN.png)
+}
+.black-bishop{
+    background-image: url(../bB.png)
+}
+.white-bishop{
+    background-image: url(../wB.png)
+}
+.black-king{
+    background-image: url(../bK.png)
+}
+.white-king{
+    background-image: url(../wK.png)
+}
+.black-queen{
+    background-image: url(../bQ.png)
+}
+.white-queen{
+    background-image: url(../wQ.png)
+}
+.black-pawn{
+    background-image: url(../bP.png)
+}
+.white-pawn{
+    background-image: url(../wP.png)
+}

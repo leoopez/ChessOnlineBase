@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}ChessOnlinebase{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chessboard.css') }}">
+{% endblock %}
+{% block navbar_a %}
+    {% if current_user.is_authenticated %}
+        <a class="navbar-brand" href="{{ url_for('account') }}">Account</a>
+    {% else %}
+        <a class="navbar-brand" href="{{ url_for('login') }}">Login</a>
+        <a class="navbar-brand" href="{{ url_for('register') }}">Register</a>
+    {% endif %}
+{% endblock%}
+
+{% block content%}
+<div class="container">
+    <div class="layout-chessboard"></div>
+</div>
+
+
+{% endblock%}
+
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/chessboard.js') }}"></script>
+{% endblock %}

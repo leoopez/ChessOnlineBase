@@ -15,7 +15,7 @@
 
 {% block content%}
     <div class="modal-info">
-        <button class="close-modal">&times;</button>
+        <button class="modal-close">&times;</button>
         <h1>By: Leonardo Ortiz López 😍</h1>
         <p>
             This web page is built solely to show evidence of skills,
@@ -25,10 +25,14 @@
     <div class="overlay"></div>
 
     {% if current_user.is_authenticated %}
-    <div class="container btn-options">
-        <a href=" {{ url_for('index')}} " class="pointer up-chess-option" id="btn-chess-com">Chess.com</a>
-        <a href=" {{ url_for('index')}} " class="pointer up-chess-option">Lichess.com</a>
-        <a href=" {{ url_for('index')}} " class="pointer up-chess-option">Chess24.com</a>
+    <div class="item-container">
+        <a href=" {{ url_for('lichess_com')}} " class="item" id="btn-chess-com">Chess.com</a>
+        <a href=" {{ url_for('chess_com')}} " class="item" id="btn-lichess-com">Lichess.com</a>
+        <a href=" {{ url_for('chess24_com')}} " class="item" id="btn-chess24-com">Chess24.com</a>
+
+    </div>
+    <div class="item-container">
+        <a href=" {{ url_for('chessboard')}} " class="item" id="btn-own-com">Own Chess Game</a>
     </div>
     {% endif %}
 

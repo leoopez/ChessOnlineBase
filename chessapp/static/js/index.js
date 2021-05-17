@@ -7,7 +7,7 @@
         modal.classList.add('hidden');
         overlay.classList.add('hidden');
     }
-    document.querySelector('.close-modal').addEventListener('click', function () {
+    document.querySelector('.modal-close').addEventListener('click', function () {
         add();
     })
 

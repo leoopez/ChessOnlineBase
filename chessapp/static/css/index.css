@@ -1,28 +1,13 @@
-.show-modal {
-  font-size: 2rem;
-  font-weight: 600;
-  padding: 1.75rem 3.5rem;
-  margin: 5rem 2rem;
-  border: none;
-  background-color: #fff;
-  color: #444;
-  border-radius: 10rem;
-  cursor: pointer;
-}
-
-.close-modal {
+.modal-close {
   position: absolute;
   top: 1.2rem;
   right: 2rem;
   font-size: 5rem;
-  color: #333;
   cursor: pointer;
   border: none;
   background: none;
 }
 
-/* -------------------------- */
-/* CLASSES TO MAKE MODAL WORK */
 .hidden {
   display: none;
 }
@@ -33,12 +18,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
-
   background-color: white;
   padding: 6rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 10;
+  z-index: 2;
 }
 
 .overlay {
@@ -49,33 +33,26 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
-  z-index: 5;
+  z-index: 1;
 }
 
-.btn-options{
-  margin: 20px auto;
-  width:400px;
-  height:400px;
-  display:grid;
-  grid-template-columns: 200px 200px;
-  grid-gap: 20px;
+.item-container{
+  display: flex;
+  justify-content: center;
 }
 
-.up-chess-option{
-    background-color:#333;
-    padding:20px;
-    border-radius:10px;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-decoration: none;
-    font-size:20px;
-    /*font-family:sans-serif;*/
+.item{
+  flex-basis: 100%;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 3.5rem 3.5rem;
+  margin: 5rem 2rem;
+  border: none;
+  background-color: #fff;
+  color: #444;
+  border-radius: 10rem;
 }
 
-#btn-chess-com:hover{
-  background-image: url(https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/SamCopeland/phpe9mLN5.png);
-  background-size: 100% 100% ;
-  background-repeat:no-repeat;
-}

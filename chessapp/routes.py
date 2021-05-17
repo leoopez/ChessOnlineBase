@@ -4,6 +4,10 @@ from chessapp.forms import RegistrationForm, LoginForm, UpdateForm
 from chessapp.database import User, Game
 from flask_login import login_user, current_user, logout_user, login_required
 from datetime import datetime
+from lichess.api import ApiHttpError
+
+
+from chessapp.squares import squares_points, game
 
 
 @app.errorhandler(404)
@@ -14,6 +18,11 @@ def page_not_found(e):
 @app.route('/')
 def index():
     return render_template("index.html", current_time=datetime.utcnow())
+
+
+@app.route('/about')
+def about():
+    return render_template("about.html")
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -75,3 +84,38 @@ def profile():
         form.email.data = current_user.email
     image_file = url_for('static', filename="images/default.png")
     return render_template('profile.html', image_file=image_file, form=form)
+
+
+@login_required
+@app.route('/lichess')
+def lichess_com():
+    return render_template('lichess.html')
+
+
+@login_required
+@app.route('/<token>')
+def url_game(token):
+
+    gm = game(token)
+    ap = squares_points(gm)
+
+    return render_template('game.html', ap=ap.to_json(), gm=gm)
+
+
+@login_required
+@app.route('/lichess')
+def chess_com():
+    example = request.args
+    return render_template('account.html', example=example)
+
+
+@login_required
+@app.route('/lichess')
+def chess24_com():
+    return render_template('account.html')
+
+
+@login_required
+@app.route('/chessboard', methods=['GET', 'POST'])
+def chessboard():
+    return render_template('chessboard.html')
