@@ -6,8 +6,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 from datetime import datetime
 from lichess.api import ApiHttpError
 
-
-from chessapp.squares import squares_points, game
+from chessapp.squares import get_moves, game_pgn
 
 
 @app.errorhandler(404)
@@ -95,27 +94,13 @@ def lichess_com():
 @login_required
 @app.route('/<token>')
 def url_game(token):
-
-    gm = game(token)
-    ap = squares_points(gm)
-
-    return render_template('game.html', ap=ap.to_json(), gm=gm)
-
-
-@login_required
-@app.route('/lichess')
-def chess_com():
-    example = request.args
-    return render_template('account.html', example=example)
-
-
-@login_required
-@app.route('/lichess')
-def chess24_com():
-    return render_template('account.html')
+    gm = game_pgn(token)
+    moves = get_moves(gm)
+    return render_template('chessboard.html', gm=gm.headers, moves=moves, online=True)
 
 
 @login_required
 @app.route('/chessboard', methods=['GET', 'POST'])
 def chessboard():
-    return render_template('chessboard.html')
+    online = False
+    return render_template('chessboard.html', online=False)

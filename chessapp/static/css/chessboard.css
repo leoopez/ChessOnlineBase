@@ -1,5 +1,6 @@
-
-
+.game-info{
+    width: 30%;
+}
 .layout-chessboard{
     margin-left: auto;
     margin-right: auto;
