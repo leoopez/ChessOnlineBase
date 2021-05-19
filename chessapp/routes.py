@@ -4,9 +4,9 @@ from chessapp.forms import RegistrationForm, LoginForm, UpdateForm
 from chessapp.database import User, Game
 from flask_login import login_user, current_user, logout_user, login_required
 from datetime import datetime
-from lichess.api import ApiHttpError
 
-from chessapp.squares import get_moves, game_pgn
+
+from chessapp.scraper import game_pgn, move_text
 
 
 @app.errorhandler(404)
@@ -95,12 +95,11 @@ def lichess_com():
 @app.route('/<token>')
 def url_game(token):
     gm = game_pgn(token)
-    moves = get_moves(gm)
-    return render_template('chessboard.html', gm=gm.headers, moves=moves, online=True)
+    return render_template('chessboard.html', gm=gm.headers if gm else None, moves=move_text(gm) if gm else None, online=True)
 
 
 @login_required
-@app.route('/chessboard', methods=['GET', 'POST'])
+@app.route('/chessboard')
 def chessboard():
     online = False
     return render_template('chessboard.html', online=False)

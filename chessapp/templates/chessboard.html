@@ -14,40 +14,37 @@
 {% endblock%}
 
 {% block content%}
-<div class="container d-inline-flex p-2 bd-highlight">
-        <div class="p-2 bd-highlight align-self-center">
-            {% if online %}
-                <ul class="list-group">
-                    <li class="list-group-item">Event: {{gm['Event'] }}</li>
-                    <li class="list-group-item">{{ gm['White'] }} {{ gm['WhiteElo'] }} {{ gm['Result'] }} {{ gm['BlackElo'] }} {{ gm['Black'] }}</li>
-                </ul>
-
-                <ul class="list-group">
-                    <li class="list-group-item">Site: {{gm['Site'] }}</li>
-                    <li class="list-group-item">Date: {{gm['Date'] }}</li>
-                    <li class="list-group-item">Round: {{gm['Round'] }}</li>
-                </ul>
-
-                <ul class="list-group">
-                    <li class="list-group-item">ECO: {{gm['ECO'] }}</li>
-                    <li class="list-group-item">Opening: {{gm['Opening'] }}</li>
-                    <li class="list-group-item">Termination: {{gm['Termination'] }}</li>
-                    <li class="list-group-item">TimeControl: {{gm['TimeControl'] }}</li>
-                </ul>
-            {{ moves}}
-            {% endif %}
-        </div>
-        <div class="p-2 bd-highlight">
-            <div class="layout-chessboard">
+    <div class="container chessgame">
+        <div class="d-inline-flex p-2 bd-highlight">
+            <div class="p-2 bd-highlight">
+                <div class="layout-chessboard"></div>
+            </div>
+            <div class="p-2 bd-highlight align-self-center">
+                {% if online %}
+                <div class="container game-info">
+                    <ul class="list-group info info">
+                        <li class="list-group-item list-group-item-secondary">Event: {{gm['Event'] }}</li>
+                        <li class="list-group-item list-group-item-primary">
+                            <span class="badge bg-light text-dark">{{ gm['White'] }} {{ gm['WhiteElo'] }}</span>
+                            <span class="badge bg-primary">{{ gm['Result'] }}</span>
+                            <span class="badge bg-dark">{{ gm['BlackElo'] }} {{ gm['Black'] }}</span>
+                        </li>
+                        <li class="list-group-item list-group-item-success">Site: {{gm['Site'] }}</li>
+                        <li class="list-group-item list-group-item-success">Date: {{gm['Date'] }}</li>
+                        <li class="list-group-item list-group-item-success">Round: {{gm['Round'] }}</li>
+                        <li class="list-group-item list-group-item-success">ECO: {{gm['ECO'] }}</li>
+                        <li class="list-group-item list-group-item-success">Opening: {{gm['Opening'] }}</li>
+                        <li class="list-group-item list-group-item-success">Termination: {{gm['Termination'] }}</li>
+                        <li class="list-group-item list-group-item-success">TimeControl: {{gm['TimeControl'] }}</li>
+                    </ul>
+                    <div class="moves">
+                        {{ moves}}
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
-        <div class="me-auto p-2 bd-highlight align-self-center">
-            <p>
-
-            </p>
-        </div>
-</div>
-
+    </div>
 {% endblock%}
 
 
