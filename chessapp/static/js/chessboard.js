@@ -1,7 +1,8 @@
+'use strict'
 
-(function () {
+;(function () {
     const deleteTag = function (tag) {
-        it = document.querySelector(tag);
+        let it = document.querySelector(tag);
         if (it)
             it.remove();
     }

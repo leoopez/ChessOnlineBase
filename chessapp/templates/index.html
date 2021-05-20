@@ -27,12 +27,12 @@
     {% if current_user.is_authenticated %}
         <div class="container">
             <div class="item-container">
-                <a href=" {{ url_for('lichess_com')}} " class="item" id="btn-chess-com">Chess.com</a>
-                <a href=" {{ url_for('lichess_com')}} " class="item" id="btn-lichess-com">Lichess.com</a>
-                <a href=" {{ url_for('lichess_com')}} " class="item" id="btn-chess24-com">Chess24.com</a>
+                <div class="item" id="btn-chess-com">Chess.com</div>
+                <div class="item" id="btn-lichess-com">Lichess.com</div>
+                <div class="item" id="btn-chess24-com">Chess24.com</div>
             </div>
             <div class="item-container">
-                <a href=" {{ url_for('chessboard')}} " class="item" id="btn-own-com">Own Chess Game</a>
+                <div class="item" id="btn-own-com">Own Chess Game</div>
             </div>
         </div>
     {% endif %}

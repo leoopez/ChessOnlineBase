@@ -61,6 +61,7 @@
 }
 
 #btn-lichess-com{
+  transition: 2s;
   background-color: #edebe9;
 }
 
