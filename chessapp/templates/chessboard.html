@@ -11,7 +11,7 @@
 {% endblock%}
 
 {% block content%}
-    <div class="game-text">
+    <div class="game-text w-50 p-3">
         <div class="game-info">
             <span>{{ gm['White'] }} {{ gm['WhiteElo'] }}</span>
             <span>{{ gm['Result'] }}</span>
@@ -23,26 +23,54 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarsExample01">
                 <ul class="navbar-nav me-auto mb-2">
-                    <li>Event: {{gm['Event'] }}</li>
-                    <li>Site: {{gm['Site'] }}</li>
-                    <li>Date: {{gm['Date'] }}</li>
-                    <li>Round: {{gm['Round'] }}</li>
-                    <li>ECO: {{gm['ECO'] }}</li>
-                    <li>Opening: {{gm['Opening'] }}</li>
-                    <li>Termination: {{gm['Termination'] }}</li>
-                    <li>TimeControl: {{gm['TimeControl'] }}</li>
+                    <li class="text-secondary">Event: {{gm['Event'] }}</li>
+                    <li class="text-secondary">Site: {{gm['Site'] }}</li>
+                    <li class="text-secondary">Date: {{gm['Date'] }}</li>
+                    <li class="text-secondary">Round: {{gm['Round'] }}</li>
+                    <li class="text-secondary">ECO: {{gm['ECO'] }}</li>
+                    <li class="text-secondary">Opening: {{gm['Opening'] }}</li>
+                    <li class="text-secondary">Termination: {{gm['Termination'] }}</li>
+                    <li class="text-secondary">TimeControl: {{gm['TimeControl'] }}</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="layout-chessboard"></div>
     {% if online %}
-    <div class="moves">
-        {{ moves}}
-    </div>
+    <div class="moves w-50 p-3"></div>
     {% endif %}
 {% endblock%}
 
 {% block script %}
+    <script type="text/javascript">
+        const moves = ( {{ moves|safe }} );
+        let movesDiv = document.querySelector('.moves');
+        for (let key in moves) {
+            let p = document.createElement('DIV');
+            p.className = "move";
+            movesDiv.appendChild(p);
+
+
+            let numberMove = document.createElement('DIV');
+            numberMove.className = "move-number";
+            numberMove.textContent = key;
+
+            let whiteMove =  document.createElement('DIV');
+            whiteMove.className = "white-move";
+
+            p.appendChild(numberMove);
+            p.appendChild(whiteMove);
+
+            const val = moves[key];
+            whiteMove.textContent = val["w"].san;
+
+            if(val.hasOwnProperty("b")){
+                let blackMove =  document.createElement('DIV');
+                    blackMove.className = "black-move";
+                blackMove.textContent = val["b"].san;
+                p.appendChild(blackMove);
+            }
+        }
+    </script>
     <script src="{{ url_for('static', filename='js/chessboard.js') }}"></script>
 {% endblock %}

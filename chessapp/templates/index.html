@@ -9,6 +9,7 @@
         <a class="nav-link active" aria-current="page" href="/">Home</a>
         <a class="nav-link" href="{{ url_for('about')}}">About</a>
     {% if current_user.is_authenticated %}
+        <a class="nav-link" href="{{ url_for('game') }}">Up Game</a>
         <a class="nav-link" href="{{ url_for('account') }}">Account</a>
     {% else %}
         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
@@ -17,28 +18,40 @@
 {% endblock%}
 
 {% block content%}
-    {% if current_user.is_authenticated %}
-        <div>
-            <div class="container">
-                <div class="item-container">
-                    <div class="item" id="btn-chess-com">Chess.com</div>
-                    <div class="item" id="btn-lichess-com">Lichess.com</div>
-                    <div class="item" id="btn-chess24-com">Chess24.com</div>
+        <div class="presentation-img mx-auto">
+            <div class="presentation-modal w-50 p-3">
+                <div class="d-flex justify-content-evenly">
+                    <button type="button" class="row btn btn-danger">Own</button>
+                    <button type="button" class="row btn btn-secondary">Lichess</button>
+                    <button type="button" class="row btn btn-success">Chess</button>
+                    <button type="button" class="row btn btn-primary">Chess24</button>
                 </div>
-                <div>
-                    <div class="item" id="btn-own-com">Own Chess Game</div>
+                <div class="icons-var-index"></div>
+                <div id="own-window">
+                    <h1>Save your Favorites Games in One Place😍</h1>
+                    <p class="lead">ChessOnlineBase is app to save all your online games in one place</p>
+                    <p class="lead">Supporting online games in online platforms, Lichess.org, Chess.com and Chess24.com</p>
+                </div>
+                <div id="lichess-window" class="hidden">
+                    <h1>Save your Favorites Games in One Place😍</h1>
+                    <p class="lead">ChessOnlineBase is app to save all your online games in one place</p>
+                    <p class="lead">Supporting online games in online platforms, Lichess.org, Chess.com and Chess24.com</p>
+                </div>
+                <div id="chess-window" class="hidden">
+                    <h1>Save your Favorites Games in One Place😍</h1>
+                    <p class="lead">ChessOnlineBase is app to save all your online games in one place</p>
+                    <p class="lead">Supporting online games in online platforms, Lichess.org, Chess.com and Chess24.com</p>
+                </div>
+                <div id="chess24-window" class="hidden">
+                    <h1>Save your Favorites Games in One Place😍</h1>
+                    <p class="lead">ChessOnlineBase is app to save all your online games in one place</p>
+                    <p class="lead">Supporting online games in online platforms, Lichess.org, Chess.com and Chess24.com</p>
                 </div>
             </div>
+            <div class="get-started-modal">
+                <a type="button" class="btn btn-dark" href="{{ url_for('game') }}">Get Started!</a>
+            </div>
         </div>
-    {% else %}
-        <div class="presentation-img">
-                <div class="presentation-modal">
-                    <h1>Save your Favorites Games  😍</h1>
-                    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the
-                        text, and add your own fullscreen background photo to make it your own.</p>
-                </div>
-        </div>
-    {% endif %}
 {% endblock%}
 
 {% block script %}

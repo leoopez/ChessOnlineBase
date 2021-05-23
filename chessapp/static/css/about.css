@@ -8,10 +8,6 @@
   background: none;
 }
 
-.hidden {
-  display: none;
-}
-
 .modal-info{
   position: absolute;
   top: 50%;

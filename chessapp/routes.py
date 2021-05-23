@@ -86,9 +86,9 @@ def profile():
 
 
 @login_required
-@app.route('/lichess')
-def lichess_com():
-    return render_template('lichess.html')
+@app.route('/game')
+def game():
+    return render_template('game.html')
 
 
 @login_required

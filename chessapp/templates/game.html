@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}ChessOnlinebase{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block navbar %}
+        <a class="nav-link" aria-current="page" href="/">Home</a>
+        <a class="nav-link" href="{{ url_for('about')}}">About</a>
+    {% if current_user.is_authenticated %}
+        <a class="nav-link active" href="{{ url_for('game') }}">UpGame</a>
+        <a class="nav-link" href="{{ url_for('account') }}">Account</a>
+    {% else %}
+        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+    {% endif %}
+{% endblock%}
+
+{% block content%}
+    {% if current_user.is_authenticated %}
+        <div class="container">
+            <div class="item-container">
+                <div class="item display-6" id="btn-chess-com">Chess24.com</div>
+                <div class="item display-6" onclick="myFunction()" id="btn-lichess-com">
+                    <p>Lichess.com</p>
+                        <div class="hidden" id="token-lichess">
+                            <input class="url-lichess-value" type="text" value="uVg0QMmi"/>
+                            <a class="url-lichess-token">OK!</a>
+                        </div>
+                </div>
+                <div class="item display-6" id="btn-chess24-com">Chess24.com</div>
+            </div>
+            <div>
+                <div class="item" id="btn-own-com">Own Chess Game</div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock%}
+
+{% block script %}
+    {% if current_user.is_authenticated %}
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    {% endif %}
+{% endblock %}

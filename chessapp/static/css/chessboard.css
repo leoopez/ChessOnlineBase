@@ -3,7 +3,6 @@
     text-align: center;
 }
 .game-text{
-    width: 560px;
     margin: 0 auto;
     text-align: center;
 }
@@ -23,6 +22,43 @@
 
 .info{
     text-align: center;
+}
+
+.moves{
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.move{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 6px;
+    background-color: #D5D8DC;
+    border-radius: 4px;
+}
+
+.move > div{
+    margin: 4px;
+    border-radius: 4px;
+}
+
+.move-number{
+    text-align: center;
+}
+
+.black-move{
+    background-color: #0c0c0d;
+    color: white;
+    min-width: 40px;
+}
+
+.white-move{
+    background-color: #ECF0F1;
+    min-width: 40px;
 }
 
 .black-rook{
