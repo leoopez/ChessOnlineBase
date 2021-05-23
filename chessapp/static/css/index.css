@@ -1,39 +1,17 @@
-.modal-close {
-  position: absolute;
-  top: 1.2rem;
-  right: 2rem;
-  font-size: 5rem;
-  cursor: pointer;
-  border: none;
-  background: none;
+.presentation-img{
+  display: block;
+  background: url(../img/index-background.jpg);
+  height: 100vh;
+  background-size: 100%;
 }
 
-.hidden {
-  display: none;
-}
-
-.modal-info{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  background-color: white;
-  padding: 6rem;
+.presentation-modal{
+  text-align: center;
+  display: block;
+  margin: auto;
+  width: 42em;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
-  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 2;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
-  z-index: 1;
 }
 
 .item-container{

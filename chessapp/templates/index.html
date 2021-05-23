@@ -4,41 +4,45 @@
 {% block styles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 {% endblock %}
-{% block navbar_a %}
-        <a class="navbar-brand" href="{{ url_for('about') }}">About</a>
+
+{% block navbar %}
+        <a class="nav-link active" aria-current="page" href="/">Home</a>
+        <a class="nav-link" href="{{ url_for('about')}}">About</a>
     {% if current_user.is_authenticated %}
-        <a class="navbar-brand" href="{{ url_for('account') }}">Account</a>
+        <a class="nav-link" href="{{ url_for('account') }}">Account</a>
     {% else %}
-        <a class="navbar-brand" href="{{ url_for('login') }}">Login</a>
-        <a class="navbar-brand" href="{{ url_for('register') }}">Register</a>
+        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
     {% endif %}
 {% endblock%}
 
 {% block content%}
-    <div class="modal-info">
-        <button class="modal-close">&times;</button>
-        <h1>By: Leonardo Ortiz López 😍</h1>
-        <p>
-            This web page is built solely to show evidence of skills,
-            it is not intended for implementation or deployment.
-        </p>
-    </div>
-    <div class="overlay"></div>
     {% if current_user.is_authenticated %}
-        <div class="container">
-            <div class="item-container">
-                <div class="item" id="btn-chess-com">Chess.com</div>
-                <div class="item" id="btn-lichess-com">Lichess.com</div>
-                <div class="item" id="btn-chess24-com">Chess24.com</div>
-            </div>
-            <div class="item-container">
-                <div class="item" id="btn-own-com">Own Chess Game</div>
+        <div>
+            <div class="container">
+                <div class="item-container">
+                    <div class="item" id="btn-chess-com">Chess.com</div>
+                    <div class="item" id="btn-lichess-com">Lichess.com</div>
+                    <div class="item" id="btn-chess24-com">Chess24.com</div>
+                </div>
+                <div>
+                    <div class="item" id="btn-own-com">Own Chess Game</div>
+                </div>
             </div>
         </div>
+    {% else %}
+        <div class="presentation-img">
+                <div class="presentation-modal">
+                    <h1>Save your Favorites Games  😍</h1>
+                    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the
+                        text, and add your own fullscreen background photo to make it your own.</p>
+                </div>
+        </div>
     {% endif %}
-
 {% endblock%}
 
 {% block script %}
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    {% if current_user.is_authenticated %}
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    {% endif %}
 {% endblock %}

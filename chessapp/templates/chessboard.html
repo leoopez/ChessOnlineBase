@@ -4,49 +4,44 @@
 {% block styles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/chessboard.css') }}">
 {% endblock %}
-{% block navbar_a %}
-    {% if current_user.is_authenticated %}
-        <a class="navbar-brand" href="{{ url_for('account') }}">Account</a>
-    {% else %}
-        <a class="navbar-brand" href="{{ url_for('login') }}">Login</a>
-        <a class="navbar-brand" href="{{ url_for('register') }}">Register</a>
-    {% endif %}
+
+{% block navbar %}
+    <a class="nav-link" aria-current="page" href="/">Home</a>
+    <a class="nav-link" href="{{ url_for('account') }}">Account</a>
 {% endblock%}
 
 {% block content%}
-    <div class="container chessgame">
-        <div class="d-inline-flex p-2 bd-highlight">
-            <div class="p-2 bd-highlight">
-                <div class="layout-chessboard"></div>
-            </div>
-            <div class="p-2 bd-highlight align-self-center">
-                {% if online %}
-                <div class="container game-info">
-                    <ul class="list-group info info">
-                        <li class="list-group-item list-group-item-secondary">Event: {{gm['Event'] }}</li>
-                        <li class="list-group-item list-group-item-primary">
-                            <span class="badge bg-light text-dark">{{ gm['White'] }} {{ gm['WhiteElo'] }}</span>
-                            <span class="badge bg-primary">{{ gm['Result'] }}</span>
-                            <span class="badge bg-dark">{{ gm['BlackElo'] }} {{ gm['Black'] }}</span>
-                        </li>
-                        <li class="list-group-item list-group-item-success">Site: {{gm['Site'] }}</li>
-                        <li class="list-group-item list-group-item-success">Date: {{gm['Date'] }}</li>
-                        <li class="list-group-item list-group-item-success">Round: {{gm['Round'] }}</li>
-                        <li class="list-group-item list-group-item-success">ECO: {{gm['ECO'] }}</li>
-                        <li class="list-group-item list-group-item-success">Opening: {{gm['Opening'] }}</li>
-                        <li class="list-group-item list-group-item-success">Termination: {{gm['Termination'] }}</li>
-                        <li class="list-group-item list-group-item-success">TimeControl: {{gm['TimeControl'] }}</li>
-                    </ul>
-                    <div class="moves">
-                        {{ moves}}
-                    </div>
-                </div>
-                {% endif %}
+    <div class="game-text">
+        <div class="game-info">
+            <span>{{ gm['White'] }} {{ gm['WhiteElo'] }}</span>
+            <span>{{ gm['Result'] }}</span>
+            <span>{{ gm['BlackElo'] }} {{ gm['Black'] }}</span>
+        </div>
+        <div>
+            <button class="dropdown-toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <span>Information Game</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample01">
+                <ul class="navbar-nav me-auto mb-2">
+                    <li>Event: {{gm['Event'] }}</li>
+                    <li>Site: {{gm['Site'] }}</li>
+                    <li>Date: {{gm['Date'] }}</li>
+                    <li>Round: {{gm['Round'] }}</li>
+                    <li>ECO: {{gm['ECO'] }}</li>
+                    <li>Opening: {{gm['Opening'] }}</li>
+                    <li>Termination: {{gm['Termination'] }}</li>
+                    <li>TimeControl: {{gm['TimeControl'] }}</li>
+                </ul>
             </div>
         </div>
     </div>
+    <div class="layout-chessboard"></div>
+    {% if online %}
+    <div class="moves">
+        {{ moves}}
+    </div>
+    {% endif %}
 {% endblock%}
-
 
 {% block script %}
     <script src="{{ url_for('static', filename='js/chessboard.js') }}"></script>

@@ -6,7 +6,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 from datetime import datetime
 
 
-from chessapp.scraper import game_pgn, move_text
+from chessapp.scraper import GamePGN
 
 
 @app.errorhandler(404)
@@ -94,8 +94,8 @@ def lichess_com():
 @login_required
 @app.route('/<token>')
 def url_game(token):
-    gm = game_pgn(token)
-    return render_template('chessboard.html', gm=gm.headers if gm else None, moves=move_text(gm) if gm else None, online=True)
+    gm = GamePGN(token)
+    return render_template('chessboard.html', gm=gm.pgn.headers if gm else None, moves=gm.moves if gm else None, online=True)
 
 
 @login_required
