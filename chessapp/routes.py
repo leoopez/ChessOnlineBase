@@ -86,9 +86,9 @@ def profile():
 
 
 @login_required
-@app.route('/game')
-def game():
-    return render_template('game.html')
+@app.route('/up')
+def up_game():
+    return render_template('upgame.html')
 
 
 @login_required

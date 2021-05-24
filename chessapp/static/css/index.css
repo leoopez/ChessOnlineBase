@@ -1,18 +1,18 @@
+.presentation-modal{
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  border-radius: 2px;
+}
+
 .presentation-img{
   display: block;
   background: url(../img/chess-1215079_1280.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   height: 720px;
-  padding-top: 100px;
-  padding-left: 100px;
-}
+  padding: 100px;
 
-.presentation-modal{
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.85);
-  text-align: center;
-  border-radius: 2px;
 }
 
 .icons-var-index{
@@ -22,37 +22,21 @@
 }
 
 .get-started-modal{
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 10px 10px;
 }
 
-.item-container{
-  display: flex;
-  justify-content: center;
+.lichess-modal{
+
 }
 
-.item{
-  flex-basis: 100%;
-  text-align: center;
-  cursor: pointer;
-  padding: 3.5rem 3.5rem;
-  margin: 5rem 2rem;
-  border-radius: 5px;
+.own-modal{
+
 }
 
-#btn-chess-com{
-  background-color: #7fa650;
+.chess-modal{
+
 }
 
-#btn-lichess-com{
-  transition: 2s;
-  background-color: #edebe9;
-}
+.chess24-model{
 
-#btn-chess24-com{
-  background-color: #366BAC;
-}
-
-#btn-own-com{
-  background-color: #8ba9a2;
 }

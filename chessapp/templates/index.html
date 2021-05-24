@@ -9,7 +9,7 @@
         <a class="nav-link active" aria-current="page" href="/">Home</a>
         <a class="nav-link" href="{{ url_for('about')}}">About</a>
     {% if current_user.is_authenticated %}
-        <a class="nav-link" href="{{ url_for('game') }}">Up Game</a>
+        <a class="nav-link" href="{{ url_for('up_game') }}">Up Game</a>
         <a class="nav-link" href="{{ url_for('account') }}">Account</a>
     {% else %}
         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
@@ -21,35 +21,35 @@
         <div class="presentation-img mx-auto">
             <div class="presentation-modal w-50 p-3">
                 <div class="d-flex justify-content-evenly">
-                    <button type="button" class="row btn btn-danger">Own</button>
-                    <button type="button" class="row btn btn-secondary">Lichess</button>
-                    <button type="button" class="row btn btn-success">Chess</button>
-                    <button type="button" class="row btn btn-primary">Chess24</button>
+                    <button id="own-btn" type="button" class="row btn btn-danger">Own</button>
+                    <button id="lichess-btn" type="button" class="row btn btn-secondary">Lichess</button>
+                    <button id="chess-btn" type="button" class="row btn btn-success">Chess</button>
+                    <button id="chess24-btn" type="button" class="row btn btn-primary">Chess24</button>
                 </div>
                 <div class="icons-var-index"></div>
                 <div id="own-window">
-                    <h1>Save your Favorites Games in One Place😍</h1>
-                    <p class="lead">ChessOnlineBase is app to save all your online games in one place</p>
-                    <p class="lead">Supporting online games in online platforms, Lichess.org, Chess.com and Chess24.com</p>
+                    <h1>Own Personal Games</h1>
+                    <p class="lead">Up your tornamount games to the web</p>
+                    <p class="lead">Own</p>
                 </div>
                 <div id="lichess-window" class="hidden">
                     <h1>Save your Favorites Games in One Place😍</h1>
                     <p class="lead">ChessOnlineBase is app to save all your online games in one place</p>
-                    <p class="lead">Supporting online games in online platforms, Lichess.org, Chess.com and Chess24.com</p>
+                    <p class="lead">Lichess.org</p>
                 </div>
                 <div id="chess-window" class="hidden">
                     <h1>Save your Favorites Games in One Place😍</h1>
                     <p class="lead">ChessOnlineBase is app to save all your online games in one place</p>
-                    <p class="lead">Supporting online games in online platforms, Lichess.org, Chess.com and Chess24.com</p>
+                    <p class="lead">Chess.com/p>
                 </div>
                 <div id="chess24-window" class="hidden">
                     <h1>Save your Favorites Games in One Place😍</h1>
                     <p class="lead">ChessOnlineBase is app to save all your online games in one place</p>
-                    <p class="lead">Supporting online games in online platforms, Lichess.org, Chess.com and Chess24.com</p>
+                    <p class="lead">Chess24.com</p>
                 </div>
             </div>
             <div class="get-started-modal">
-                <a type="button" class="btn btn-dark" href="{{ url_for('game') }}">Get Started!</a>
+                <a type="button" class="btn btn-dark" href="{{ url_for('up_game') }}">Get Started!</a>
             </div>
         </div>
 {% endblock%}

@@ -2,14 +2,14 @@
 {% block title %}ChessOnlinebase{% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upgame.css') }}">
 {% endblock %}
 
 {% block navbar %}
         <a class="nav-link" aria-current="page" href="/">Home</a>
         <a class="nav-link" href="{{ url_for('about')}}">About</a>
     {% if current_user.is_authenticated %}
-        <a class="nav-link active" href="{{ url_for('game') }}">UpGame</a>
+            <a class="nav-link active" href="{{ url_for('up_game') }}">Up Game</a>
         <a class="nav-link" href="{{ url_for('account') }}">Account</a>
     {% else %}
         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
@@ -19,20 +19,17 @@
 
 {% block content%}
     {% if current_user.is_authenticated %}
-        <div class="container">
-            <div class="item-container">
-                <div class="item display-6" id="btn-chess-com">Chess24.com</div>
-                <div class="item display-6" onclick="myFunction()" id="btn-lichess-com">
-                    <p>Lichess.com</p>
-                        <div class="hidden" id="token-lichess">
-                            <input class="url-lichess-value" type="text" value="uVg0QMmi"/>
-                            <a class="url-lichess-token">OK!</a>
-                        </div>
+        <div class="upgame-modal w-75 p-3">
+            <div class="row align-items-start col h-100">
+                <div class="btn-option col h-100 d-flex flex-column bd-highlight mb-3">
+                    <div class="w-50 p-2 bd-highlight btn-option-upgame" id="btn-chess-com">Chess24.com</div>
+                    <div class="w-50 p-2 bd-highlight btn-option-upgame" id="btn-lichess-com">Lichess.com</div>
+                    <div class="w-50 p-2 bd-highlight btn-option-upgame" id="btn-chess24-com">Chess24.com</div>
+                    <div class="w-50 p-2 bd-highlight btn-option-upgame" id="btn-own-com">Own Chess Game</div>
                 </div>
-                <div class="item display-6" id="btn-chess24-com">Chess24.com</div>
-            </div>
-            <div>
-                <div class="item" id="btn-own-com">Own Chess Game</div>
+                <div class="col token-modal">
+
+                </div>
             </div>
         </div>
     {% endif %}
