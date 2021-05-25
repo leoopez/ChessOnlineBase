@@ -27,8 +27,10 @@
                     <div class="w-50 p-2 bd-highlight btn-option-upgame" id="btn-chess24-com">Chess24.com</div>
                     <div class="w-50 p-2 bd-highlight btn-option-upgame" id="btn-own-com">Own Chess Game</div>
                 </div>
-                <div class="col token-modal">
+                <div class="col">
+                    <div class="token-modal container">
 
+                    </div>
                 </div>
             </div>
         </div>
@@ -37,6 +39,6 @@
 
 {% block script %}
     {% if current_user.is_authenticated %}
-        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/upgame.js') }}"></script>
     {% endif %}
 {% endblock %}
